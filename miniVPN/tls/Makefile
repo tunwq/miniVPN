@@ -1,9 +1,12 @@
+INCLUDE_FLODER = "./include"
+SRC_FLODER = "./src"
+BIN_FLODER = "./bin"
 all: 
-	gcc -o tlsclient tlsclient.c -lssl -lcrypto 
-	gcc -o tlsserver tlsserver.c -lssl -lcrypto 
-	gcc -o vpnserver_tls vpnserver_tls.c -lssl -lcrypto -lcrypt
-	gcc -o vpnserver_tls_multiclient vpnserver_tls_multiclient.c -lssl -lcrypto -lcrypt
-	gcc -o vpnclient_tls vpnclient_tls.c -lssl -lcrypto
+	gcc -I $(INCLUDE_FLODER) -o $(BIN_FLODER)/tlsclient $(SRC_FLODER)/tlsclient.c -lssl -lcrypto 
+	gcc -I $(INCLUDE_FLODER) -o $(BIN_FLODER)/tlsserver $(SRC_FLODER)/tlsserver.c -lssl -lcrypto 
+	gcc -I $(INCLUDE_FLODER) -o $(BIN_FLODER)/vpnserver_tls $(SRC_FLODER)/vpnserver_tls.c -lssl -lcrypto -lcrypt
+	gcc -I $(INCLUDE_FLODER) -o $(BIN_FLODER)/vpnserver_tls_multiclient $(SRC_FLODER)/vpnserver_tls_multiclient.c -lssl -lcrypto -lcrypt
+	gcc -I $(INCLUDE_FLODER) -o $(BIN_FLODER)/vpnclient_tls $(SRC_FLODER)/vpnclient_tls.c -lssl -lcrypto
 clean: 
-	rm tlsclient tlsserver vpnserver_tls vpnclient_tls vpnserver_tls_multiclient
+	rm $(BIN_FLODER)/*
 
